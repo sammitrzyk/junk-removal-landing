@@ -3238,9 +3238,18 @@
       //
       // GA4 / GTM conversion event:
       dispatchCtaEvent('top-quote-step-1-submit');
-      if (!miniFormEventFired) {
-        fireFormEvent('mini_form', 'mini_form', 'Top Mini Quote Form', { form_step: 'step_1_contact_info' });
-        miniFormEventFired = true;
+      console.log("MINI FORM STEP 1 BUTTON CLICKED");
+      if (!miniFormSubmitEventFired) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "mini_form_submit",
+          form_id: "mini_form",
+          form_name: "Top Mini Quote Form",
+          lead_type: "quote_request",
+          form_step: "step_1_contact_info"
+        });
+        console.log("mini_form_submit event pushed to dataLayer");
+        miniFormSubmitEventFired = true;
       }
       // ────────────────────────────────────────────────────────
 
@@ -3369,9 +3378,18 @@
       //   body: new FormData(step1Form)
       // });
       dispatchCtaEvent('top-quote-step-1-submit');
-      if (!miniFormEventFired) {
-        fireFormEvent('mini_form', 'mini_form', 'Top Mini Quote Form', { form_step: 'step_1_contact_info' });
-        miniFormEventFired = true;
+      console.log("MINI FORM STEP 1 BUTTON CLICKED");
+      if (!miniFormSubmitEventFired) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "mini_form_submit",
+          form_id: "mini_form",
+          form_name: "Top Mini Quote Form",
+          lead_type: "quote_request",
+          form_step: "step_1_contact_info"
+        });
+        console.log("mini_form_submit event pushed to dataLayer");
+        miniFormSubmitEventFired = true;
       }
 
       step1Form.style.display = 'none';
@@ -3424,6 +3442,7 @@
      FORM CONVERSION TRACKING
   ----------------------------------------------- */
   var miniFormEventFired = false;
+  var miniFormSubmitEventFired = false;
 
   function fireFormEvent(eventName, formId, formName, extraData) {
     window.dataLayer = window.dataLayer || [];

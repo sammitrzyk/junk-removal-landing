@@ -3152,8 +3152,9 @@
       // fetch(mainForm.action, { method: 'POST', body: new FormData(mainForm) })
       //   .then(function (res) { if (res.ok) showSuccess(); });
 
-      showSuccess();
       dispatchCtaEvent('main-form-submit');
+      fireFormEvent('full_form', 'full_form', 'Bottom Full Quote Form');
+      window.location.href = '/thank-you';
     });
 
     function showSuccess() {
@@ -3237,6 +3238,10 @@
       //
       // GA4 / GTM conversion event:
       dispatchCtaEvent('top-quote-step-1-submit');
+      if (!miniFormEventFired) {
+        fireFormEvent('mini_form', 'mini_form', 'Top Mini Quote Form', { form_step: 'step_1_contact_info' });
+        miniFormEventFired = true;
+      }
       // ────────────────────────────────────────────────────────
 
       advanceToStep2();
@@ -3364,6 +3369,10 @@
       //   body: new FormData(step1Form)
       // });
       dispatchCtaEvent('top-quote-step-1-submit');
+      if (!miniFormEventFired) {
+        fireFormEvent('mini_form', 'mini_form', 'Top Mini Quote Form', { form_step: 'step_1_contact_info' });
+        miniFormEventFired = true;
+      }
 
       step1Form.style.display = 'none';
       if (cardTitle) cardTitle.textContent = 'Want a faster quote?';
@@ -3410,6 +3419,33 @@
     }
   })();
 
+
+  /* -----------------------------------------------
+     FORM CONVERSION TRACKING
+  ----------------------------------------------- */
+  var miniFormEventFired = false;
+
+  function fireFormEvent(eventName, formId, formName, extraData) {
+    window.dataLayer = window.dataLayer || [];
+    var payload = {
+      event:      eventName,
+      form_id:    formId,
+      form_name:  formName,
+      lead_type:  'quote_request'
+    };
+    if (extraData) {
+      for (var key in extraData) { payload[key] = extraData[key]; }
+    }
+    window.dataLayer.push(payload);
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, {
+        event_category: 'lead',
+        event_label:    formName,
+        form_id:        formId
+      });
+    }
+    console.log('GTM event pushed:', eventName);
+  }
 
   /* -----------------------------------------------
      CTA EVENT HELPER (for GTM/GA4)

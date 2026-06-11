@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Request Sent — Junk Squad</title>
+  <link rel="icon" href="images/logo.webp">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --maroon: #9B1C20;
+      --gold:   #C89B3C;
+      --bg:     #0B0506;
+      --text:   #F6F0EC;
+      --text2:  rgba(246,240,236,0.70);
+      --text3:  rgba(246,240,236,0.48);
+      --radius: 14px;
+      --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100svh;
+      padding: 1.5rem;
+    }
+
+    .popup {
+      background: #180B0C;
+      border: 1px solid rgba(160,40,45,0.35);
+      border-radius: 22px;
+      padding: 2.5rem 2rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
+      animation: popIn 0.5s var(--ease) both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.625rem;
+    }
+
+    .body {
+      font-size: 0.9rem;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .body a {
+      color: #D06065;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #B83236 0%, #7E171B 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      padding: 0.75rem 1.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: box-shadow 0.25s;
+    }
+
+    .btn:hover {
+      box-shadow: 0 6px 20px rgba(139,30,34,0.55);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="popup">
+    <div class="icon">✅</div>
+    <p class="title">Quote Request Sent!</p>
+    <p class="body">
+      We got it. A Junk Squad crew member will reach out soon with a clear, no-pressure quote.<br><br>
+      Need a faster response? Call us at <a href="tel:+17176019835">(717) 601-9835</a>.
+    </p>
+    <a href="/" class="btn">Back to Home</a>
+  </div>
+
+</body>
+</html>

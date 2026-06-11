@@ -3238,19 +3238,7 @@
       //
       // GA4 / GTM conversion event:
       dispatchCtaEvent('top-quote-step-1-submit');
-      console.log("MINI FORM STEP 1 BUTTON CLICKED");
-      if (!miniFormSubmitEventFired) {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "mini_form_submit",
-          form_id: "mini_form",
-          form_name: "Top Mini Quote Form",
-          lead_type: "quote_request",
-          form_step: "step_1_contact_info"
-        });
-        console.log("mini_form_submit event pushed to dataLayer");
-        miniFormSubmitEventFired = true;
-      }
+      fireMiniFormSubmitTracking();
       // ────────────────────────────────────────────────────────
 
       advanceToStep2();
@@ -3378,19 +3366,7 @@
       //   body: new FormData(step1Form)
       // });
       dispatchCtaEvent('top-quote-step-1-submit');
-      console.log("MINI FORM STEP 1 BUTTON CLICKED");
-      if (!miniFormSubmitEventFired) {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "mini_form_submit",
-          form_id: "mini_form",
-          form_name: "Top Mini Quote Form",
-          lead_type: "quote_request",
-          form_step: "step_1_contact_info"
-        });
-        console.log("mini_form_submit event pushed to dataLayer");
-        miniFormSubmitEventFired = true;
-      }
+      fireMiniFormSubmitTracking();
 
       step1Form.style.display = 'none';
       if (cardTitle) cardTitle.textContent = 'Want a faster quote?';
@@ -3442,7 +3418,21 @@
      FORM CONVERSION TRACKING
   ----------------------------------------------- */
   var miniFormEventFired = false;
-  var miniFormSubmitEventFired = false;
+
+  var miniFormSubmitTracked = false;
+  function fireMiniFormSubmitTracking() {
+    if (miniFormSubmitTracked) return;
+    miniFormSubmitTracked = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "mini_form_submit",
+      form_id: "mini_form",
+      form_name: "Top Mini Quote Form",
+      lead_type: "quote_request",
+      form_step: "step_1_contact_info"
+    });
+    console.log("mini_form_submit pushed to dataLayer");
+  }
 
   function fireFormEvent(eventName, formId, formName, extraData) {
     window.dataLayer = window.dataLayer || [];

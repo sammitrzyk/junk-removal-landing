@@ -3238,7 +3238,6 @@
       //
       // GA4 / GTM conversion event:
       dispatchCtaEvent('top-quote-step-1-submit');
-      fireMiniFormSubmitTracking();
       // ────────────────────────────────────────────────────────
 
       advanceToStep2();
@@ -3366,7 +3365,6 @@
       //   body: new FormData(step1Form)
       // });
       dispatchCtaEvent('top-quote-step-1-submit');
-      fireMiniFormSubmitTracking();
 
       step1Form.style.display = 'none';
       if (cardTitle) cardTitle.textContent = 'Want a faster quote?';
@@ -3597,6 +3595,41 @@
   } else {
     initJunkSlider();
   }
+})();
+</script>
+
+<script>
+(function () {
+  function fireMiniFormSubmitEvent() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "mini_form_submit",
+      form_id: "mini_form",
+      form_name: "Top Mini Quote Form",
+      lead_type: "quote_request",
+      form_step: "step_1_contact_info"
+    });
+    console.log("mini_form_submit pushed to dataLayer");
+  }
+
+  var fired = false;
+
+  function attachStep1Tracking(formId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener("submit", function () {
+      console.log("mini_form submit detected (" + formId + ")");
+      if (!fired) {
+        fireMiniFormSubmitEvent();
+        fired = true;
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    attachStep1Tracking("heroStep1Form");
+    attachStep1Tracking("mobStep1Form");
+  });
 })();
 </script>
 </body>

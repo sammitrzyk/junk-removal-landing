@@ -359,7 +359,7 @@
     ============================================================ */
     .sticky-bar {
       position: fixed;
-      bottom: 16px;
+      bottom: 12px;
       left: 0;
       right: 0;
       z-index: 300;
@@ -369,20 +369,20 @@
       display: flex;
       justify-content: center;
       pointer-events: none;
-      transform: translateY(calc(100% + 24px));
+      transform: translateY(calc(100% + 20px));
       transition: transform 0.4s var(--ease);
     }
     .sticky-bar.shown { transform: translateY(0); }
     .sticky-bar .btn {
       pointer-events: auto;
-      width: calc(100% - 40px);
-      max-width: 420px;
-      min-height: 52px;
-      max-height: 56px;
-      padding: 0 1.25rem;
-      font-size: 1.0625rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      width: calc(100% - 56px);
+      max-width: 360px;
+      min-height: 48px;
+      max-height: 52px;
+      padding: 0 1rem;
+      font-size: 0.9375rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.22);
       flex: none;
     }
 
@@ -2179,7 +2179,7 @@
     ============================================================ */
     @media (max-width: 768px) {
       body { padding-bottom: 0; }
-      body.sticky-active { padding-bottom: 72px; }
+      body.sticky-active { padding-bottom: 80px; }
     }
 
     /* ============================================================
@@ -3306,15 +3306,19 @@
     var body = document.body;
     if (!bar) return;
 
-    var hero = document.getElementById('hero');
+    var hero     = document.getElementById('hero');
+    var formCard = document.getElementById('hero-form-card');
+
+    function isInView(el) {
+      if (!el) return false;
+      var r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0;
+    }
 
     function update() {
-      var visible;
-      if (hero) {
-        visible = hero.getBoundingClientRect().bottom < 0;
-      } else {
-        visible = window.scrollY > window.innerHeight;
-      }
+      var pastHero = hero ? hero.getBoundingClientRect().bottom < 0 : window.scrollY > window.innerHeight;
+      var ctaVisible = isInView(hero) || isInView(formCard);
+      var visible = pastHero && !ctaVisible;
       bar.classList.toggle('shown', visible);
       body.classList.toggle('sticky-active', visible);
     }

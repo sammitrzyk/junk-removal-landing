@@ -3848,6 +3848,13 @@
         fireTextPhotosClick(label);
       });
     });
+
+    var stickyBtn = document.getElementById('sticky-text-btn');
+    if (stickyBtn) {
+      stickyBtn.addEventListener('click', function () {
+        fireTextPhotosClick(stickyBtn.innerText ? stickyBtn.innerText.trim() : 'Text Photos for Fast Quote');
+      });
+    }
   });
 })();
 </script>

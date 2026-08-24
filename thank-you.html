@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Junk Squad</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- REPLACE: Add Google Tag Manager snippet here -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black:       #0d0d0d;
+      --maroon:      #6b1a1a;
+      --maroon-text: #8b2222;
+      --gold:        #c9963a;
+      --gold-dark:   #a87a28;
+      --white:       #ffffff;
+      --bg:          #f8f7f4;
+      --text1:       #1a1a1a;
+      --text2:       #3a3a3a;
+      --text3:       #6b6b6b;
+      --font-head:   'Bebas Neue', 'Barlow Condensed', sans-serif;
+      --font-body:   'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text1); }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+
+    /* Nav */
+    .site-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+    .nav-logo { height: 52px; display: block; }
+    .nav-phone {
+      display: flex; align-items: center; gap: 0.375rem;
+      color: var(--white); font-weight: 600; font-size: 0.9375rem;
+    }
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--gold); color: var(--black);
+      font-family: var(--font-body); font-weight: 700; font-size: 0.875rem;
+      padding: 0.5rem 1.125rem; border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-dark); }
+
+    /* Thank-you card */
+    .ty-wrap {
+      min-height: calc(100vh - 72px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 3rem 1.25rem;
+    }
+    .ty-card {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+      padding: 3rem 2.5rem;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+    }
+    .ty-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .ty-card h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--maroon-text);
+      margin-bottom: 0.75rem;
+    }
+    .ty-card p {
+      color: var(--text2);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .ty-card a.btn-gold {
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+    }
+    .ty-phone {
+      margin-top: 1.25rem;
+      font-size: 0.9375rem;
+      color: var(--text3);
+    }
+    .ty-phone a { color: var(--maroon-text); font-weight: 600; }
+
+    @media (max-width: 480px) {
+      .ty-card { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav" role="navigation" aria-label="Site navigation">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="/" aria-label="Junk Squad home">
+        <img src="images/logo.webp" alt="Junk Squad logo" class="nav-logo">
+      </a>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <a href="tel:+17176019835" class="nav-phone" aria-label="Call (717) 601-9835">
+          (717) 601-9835
+        </a>
+        <a href="/" class="btn-gold">Back to Home</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="ty-wrap">
+  <div class="ty-card">
+    <div class="ty-icon">✅</div>
+    <h1>You're All Set!</h1>
+    <p>We got your quote request and we'll be in touch shortly with a clear, no-obligation price. Keep an eye on your phone — we usually reach out fast.</p>
+    <a href="/" class="btn-gold">Back to Home</a>
+    <p class="ty-phone">Need us faster? Call <a href="tel:+17176019835">(717) 601-9835</a></p>
+  </div>
+</div>
+
+</body>
+</html>

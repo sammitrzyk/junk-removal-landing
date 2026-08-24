@@ -209,9 +209,9 @@
     }
 
     .field label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text3);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: rgba(246,240,236,0.82);
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
@@ -219,28 +219,28 @@
     .field input,
     .field select,
     .field textarea {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border2);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: 8px;
       padding: 0.8125rem 1rem;
       font-family: var(--font-body);
       font-size: 0.9375rem;
       color: var(--text);
-      transition: border-color var(--t);
+      transition: border-color var(--t), background var(--t);
       width: 100%;
       appearance: none;
       -webkit-appearance: none;
     }
 
     .field input::placeholder,
-    .field textarea::placeholder { color: var(--text4); }
+    .field textarea::placeholder { color: rgba(246,240,236,0.42); }
 
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
       outline: none;
-      border-color: var(--maroon);
-      background: rgba(139, 30, 34, 0.05);
+      border-color: var(--maroon-bright);
+      background: rgba(184, 50, 54, 0.08);
     }
 
     .field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
@@ -2063,12 +2063,12 @@
     .quote-form-card {
       max-width: 680px;
       margin: 0 auto;
-      background: rgba(14, 5, 6, 0.88);
-      border: 1px solid var(--maroon-border);
+      background: rgba(38, 16, 18, 0.94);
+      border: 1px solid rgba(184, 50, 54, 0.45);
       border-radius: var(--radius-xl);
       padding: 2.5rem;
       position: relative;
-      box-shadow: 0 0 0 1px rgba(139,30,34,0.08), 0 32px 64px rgba(0,0,0,0.45);
+      box-shadow: 0 0 0 1px rgba(184,50,54,0.12), 0 0 60px rgba(159,36,40,0.18), 0 32px 64px rgba(0,0,0,0.45);
     }
 
     .quote-form-card::before {
@@ -2091,8 +2091,8 @@
     .form-submit-wrap { margin-top: 0.25rem; }
 
     .form-micro {
-      font-size: 0.75rem;
-      color: var(--text4);
+      font-size: 0.8125rem;
+      color: rgba(246,240,236,0.55);
       text-align: center;
       margin-top: 0.875rem;
     }
@@ -2106,13 +2106,13 @@
     }
 
     .form-trust-item {
-      font-size: 0.75rem;
-      color: var(--text4);
+      font-size: 0.8125rem;
+      color: rgba(246,240,236,0.65);
       display: flex;
       align-items: center;
       gap: 0.375rem;
     }
-    .form-trust-item .check { color: var(--maroon-text); font-size: 0.6875rem; }
+    .form-trust-item .check { color: var(--maroon-text); font-size: 0.75rem; }
 
     /* Success state */
     .form-success {
@@ -2632,16 +2632,17 @@
 <div id="furniture"></div>
 <div id="shed"></div>
 <div id="home"></div>
+<div id="estate"></div>
 <!-- ============================================================
      STICKY MOBILE BOTTOM BAR
 ============================================================ -->
 <div class="sticky-bar" id="stickyBar" role="complementary" aria-label="Quick contact">
-  <a href="sms:7176019835"
+  <a href="#quote"
      class="btn btn-gold"
      id="sticky-text-btn"
      data-cta="sticky-text-photo-quote"
-     aria-label="Text photos for a free quote">
-    Text Photos for Fast Quote
+     aria-label="Go to quote form">
+    Get Free Quote
   </a>
 </div>
 
@@ -2698,7 +2699,7 @@
       </h1>
 
       <p class="hero-sub-mob">
-        Full garage cleanouts, shed cleanouts, estate cleanouts, basement junk, and bulky loads removed by a local crew. You point — we lift, load, and haul.
+        Full garage, shed, home, and estate cleanouts — plus basement junk and bulky loads removed by a local crew. You point — we lift, load, and haul.
       </p>
 
       <div class="hero-cta-wrap">
@@ -3196,7 +3197,7 @@
       <p class="eyebrow">Get Started</p>
       <h2 id="form-hl">Get Your Free Junk<br><em>Removal Quote</em></h2>
       <p class="body-lg">
-        Tell us what needs removed and we'll get back to you with a clear quote. Photos help us estimate faster.
+        Tell us what needs removed. We'll follow up with a clear quote.
       </p>
     </div>
 
